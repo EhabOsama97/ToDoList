@@ -107,7 +107,10 @@ class ItemsTableViewController: UITableViewController {
                 self.tableView.reloadData() }
                 
         )
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
         alert.addAction(action)
+        alert.addAction(cancelAction)
         present(alert,animated: true,completion: nil)
         
             

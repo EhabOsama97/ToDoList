@@ -13,12 +13,15 @@ import ChameleonFramework
 import SwipeCellKit
 
 class CategoryTableViewController: UITableViewController {
+    var IIndexPath:IndexPath?
     let realm = try! Realm()
     var ArrayOfCategory:Results<Category>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "categoryTableViewCell", bundle: .main), forCellReuseIdentifier: "categoryTableViewCell")
         // print(Realm.Configuration.defaultConfiguration.fileURL)
         LoadData()
         
@@ -40,22 +43,25 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
-        cell.delegate = self
-        cell.textLabel?.text = ArrayOfCategory![indexPath.row].name
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryTableViewCell", for: indexPath) as! categoryTableViewCell
+        //cell.delegate = self
+        let categoryName = ArrayOfCategory![indexPath.row].name
         let color = UIColor(hexString: (ArrayOfCategory?[indexPath.row].color)!)
-        cell.backgroundColor = color
-        cell.textLabel?.textColor = ContrastColorOf(color!, returnFlat: true)
+        cell.configure(Name: categoryName, color: color!)
+        //cell.textLabel?.textColor = ContrastColorOf(color!, returnFlat: true)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        IIndexPath = indexPath
          performSegue(withIdentifier: "ShowItemsSegue", sender: self)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ItemsTableViewController
-        destination.parentCategory = ArrayOfCategory![tableView.indexPathForSelectedRow!.row]
+        destination.parentCategory = ArrayOfCategory![IIndexPath!.row]
     }
   
     //MARK: - add category button pressed
@@ -75,6 +81,9 @@ class CategoryTableViewController: UITableViewController {
                 } }catch{
                     print("error in saving Category \(error)")
             }
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
             
         }))
         present(alert,animated: true,completion: nil)
