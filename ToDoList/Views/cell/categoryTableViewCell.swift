@@ -8,8 +8,9 @@
 
 import UIKit
 import ChameleonFramework
+import SwipeCellKit
 
-class categoryTableViewCell: UITableViewCell {
+class categoryTableViewCell: SwipeTableViewCell {
 
     @IBOutlet weak var category_label: UILabel!
     @IBOutlet weak var background_view: UIView!

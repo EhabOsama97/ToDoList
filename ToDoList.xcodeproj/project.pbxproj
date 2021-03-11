@@ -16,9 +16,11 @@
 		C043A4B725397597001D1770 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043A4B625397597001D1770 /* CategoryTableViewController.swift */; };
 		C063FA0725EE68C200CDB0C0 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063FA0525EE68C200CDB0C0 /* categoryTableViewCell.swift */; };
 		C063FA0825EE68C200CDB0C0 /* categoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C063FA0625EE68C200CDB0C0 /* categoryTableViewCell.xib */; };
+		C071984D25FA581300B30C9C /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071984C25FA581300B30C9C /* CategoryViewModel.swift */; };
 		C09B694E253A96C600CF3197 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B694D253A96C600CF3197 /* ItemsTableViewController.swift */; };
 		C0F0739F253984810083EB51 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0739E253984810083EB51 /* Category.swift */; };
 		C0F073A12539856E0083EB51 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F073A02539856E0083EB51 /* Item.swift */; };
+		C0FDDF8325FA77310014BBF9 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FDDF8225FA77310014BBF9 /* ItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +36,11 @@
 		C043A4B625397597001D1770 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C063FA0525EE68C200CDB0C0 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
 		C063FA0625EE68C200CDB0C0 /* categoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = categoryTableViewCell.xib; sourceTree = "<group>"; };
+		C071984C25FA581300B30C9C /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		C09B694D253A96C600CF3197 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		C0F0739E253984810083EB51 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C0F073A02539856E0083EB51 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C0FDDF8225FA77310014BBF9 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		E02075BCAEED162211ECD8ED /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,14 +77,11 @@
 		C043A4A125396AB5001D1770 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				C043A4B025396AB7001D1770 /* Info.plist */,
-				C043A4A425396AB5001D1770 /* SceneDelegate.swift */,
-				C043A4AB25396AB7001D1770 /* Assets.xcassets */,
-				C043A4AD25396AB7001D1770 /* LaunchScreen.storyboard */,
-				C043A4A225396AB5001D1770 /* AppDelegate.swift */,
+				C071984625FA530100B30C9C /* Resources */,
 				C0F073A22539877F0083EB51 /* Data Models */,
 				C0F073A4253987D70083EB51 /* Views */,
-				C0F073A3253987A30083EB51 /* Controllers */,
+				C071984525FA52E800B30C9C /* View Models */,
+				C043A4B025396AB7001D1770 /* Info.plist */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -94,6 +95,34 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		C071984525FA52E800B30C9C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				C071984C25FA581300B30C9C /* CategoryViewModel.swift */,
+				C0FDDF8225FA77310014BBF9 /* ItemViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		C071984625FA530100B30C9C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C043A4A425396AB5001D1770 /* SceneDelegate.swift */,
+				C043A4A225396AB5001D1770 /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C071984725FA532500B30C9C /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C043A4A825396AB5001D1770 /* Main.storyboard */,
+				C043A4AB25396AB7001D1770 /* Assets.xcassets */,
+				C043A4AD25396AB7001D1770 /* LaunchScreen.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
 		C0F073A22539877F0083EB51 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,20 +132,13 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
-		C0F073A3253987A30083EB51 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C043A4B625397597001D1770 /* CategoryTableViewController.swift */,
-				C09B694D253A96C600CF3197 /* ItemsTableViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		C0F073A4253987D70083EB51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C071984725FA532500B30C9C /* storyboards */,
 				C063FA0425EE682900CDB0C0 /* cell */,
-				C043A4A825396AB5001D1770 /* Main.storyboard */,
+				C043A4B625397597001D1770 /* CategoryTableViewController.swift */,
+				C09B694D253A96C600CF3197 /* ItemsTableViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +280,8 @@
 				C043A4A325396AB5001D1770 /* AppDelegate.swift in Sources */,
 				C09B694E253A96C600CF3197 /* ItemsTableViewController.swift in Sources */,
 				C043A4A525396AB5001D1770 /* SceneDelegate.swift in Sources */,
+				C071984D25FA581300B30C9C /* CategoryViewModel.swift in Sources */,
+				C0FDDF8325FA77310014BBF9 /* ItemViewModel.swift in Sources */,
 				C063FA0725EE68C200CDB0C0 /* categoryTableViewCell.swift in Sources */,
 				C0F073A12539856E0083EB51 /* Item.swift in Sources */,
 				C043A4B725397597001D1770 /* CategoryTableViewController.swift in Sources */,
